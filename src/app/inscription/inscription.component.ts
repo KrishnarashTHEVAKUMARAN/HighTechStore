@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {HttpErrorResponse} from "@angular/common/http";
 import {Users} from "./users";
 import {UsersService} from "./users.service";
-import {FormBuilder, FormControl, FormGroup, NgForm, Validators} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-inscription',
@@ -37,7 +37,7 @@ export class InscriptionComponent implements OnInit {
     );
   }
 
-  public onAddUsers(userForm: FormGroup): void{
+  public onAddUsers(userForm: FormGroup, formDirective: FormGroupDirective): void{
     this.usersService.addUsers(userForm.value).subscribe(
       (response: Users[]) => {
         console.log(response);
@@ -47,6 +47,7 @@ export class InscriptionComponent implements OnInit {
         alert(error.message);
       }
     );
+    formDirective.resetForm();
   }
 
 }
