@@ -25,7 +25,7 @@ export class PcPortableService {
   }
 
   public deletePcPortable(pcPortableId: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiServerUrl}/pcPortable/delete/${pcPortableId}`)
+    return this.http.delete<void>(`${this.apiServerUrl}/pcPortable/delete/${pcPortableId!}`)
   }
 
 }
