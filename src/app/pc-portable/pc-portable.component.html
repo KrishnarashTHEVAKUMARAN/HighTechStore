@@ -1,37 +1,17 @@
-<div class="row mx-1 my-1 row-cols-1 row-cols-md-4 g-4">
-  <div class="col">
-    <div class="card h-100 border-dark">
-      <img src="assets\image\home\telephonies.jpg" class="card-header bg-transparent border-dark" alt="PC Portable 1">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card h-100 border-dark">
-      <img src="assets\image\home\telephonies.jpg" class="card-header bg-transparent border-dark" alt="PC Portable 2">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a short card.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card h-100 border-dark">
-      <img src="assets\image\home\telephonies.jpg" class="card-header bg-transparent border-dark" alt="PC Portable 3">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card h-100 border-dark">
-      <img src="assets\image\home\telephonies.jpg" class="card-header bg-transparent border-dark" alt="PC Portable 4">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+<div class="container" id="main-container">
+  <div class="row p-1">
+    <div class="col-md-6 col-xl-4 py-2" *ngFor="let pcP of pcPortable">
+      <div class="card h-100 border-dark m-b-30">
+        <div class="card-header bg-transparent">
+          <div class="w-50 m-auto d-block">
+            <img src="{{pcP.image}}" class="rounded bg-transparent border-dark img-fluid">
+          </div>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{pcP.article}}</h5>
+          <p class="card-text">{{pcP.caracteristique}}</p>
+        </div>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
       </div>
     </div>
   </div>
