@@ -31,7 +31,7 @@ export class PcPortableComponent implements OnInit {
     );
   }
 
-  public onAddEmloyee(addForm: NgForm): void {
+  public onAddPcPortable(addForm: NgForm): void {
     const container = document.getElementById('addPcPortableModal');
     container?.click();
     this.pcPortableService.addPcPortable(addForm.value).subscribe(

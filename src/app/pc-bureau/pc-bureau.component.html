@@ -1,37 +1,114 @@
-<div class="row mx-1 my-1 row-cols-1 row-cols-md-4 g-4">
-  <div class="col">
-    <div class="card h-100 border-dark">
-      <img src="assets\image\home\ordinateur.jpg" class="card-header bg-transparent border-dark" alt="PC Portable 1">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+<div class="container" id="main-container">
+  <div class="row p-1">
+    <div class="col-md-6 col-xl-4 py-2" *ngFor="let pcB of pcBureau">
+      <div class="card h-100 border-dark m-b-30">
+        <div class="card-header bg-transparent">
+          <div class="w-50 m-auto d-block">
+            <img src="{{pcB.image}}" class="rounded bg-transparent border-dark img-fluid">
+          </div>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{pcB.article}}</h5>
+          <p class="card-text text-justify">{{pcB.caracteristique}}</p>
+        </div>
+        <div class="card-footer">
+          <div class="pull-right btn-group btn-group-sm">
+            <a (click)="onOpenModal(pcB, 'edit')" class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
+            <a (click)="onOpenModal(pcB, 'delete')" class="btn btn-secondary tooltips" data-placement="top" data-original-title="Delete"><i class="fa fa-times"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a class="text-center" (click)="onOpenModal(null, 'add')">Ajouter Pc Bureau</a>
+  </div>
+</div>
+
+<!-- Add PcPortable Modal -->
+<div class="modal fade" id="addPcBureauModal" tabindex="-1" role="dialog" aria-labelledby="addEmployeeModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addEmployeeModalLabel">Ajouter Article</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #addForm="ngForm" (ngSubmit)="onAddPcBureau(addForm)">
+          <div class="form-group">
+            <label for="article">Article</label>
+            <input type="text" ngModel name="article" class="form-control" id="article1" placeholder="Article" required>
+          </div>
+          <div class="form-group">
+            <label for="caracteristique">Caracteristique</label>
+            <input type="text" ngModel name="caracteristique" class="form-control" id="caracteristique1" placeholder="Caracteristique" required>
+          </div>
+          <div class="form-group">
+            <label for="image">image</label>
+            <input type="text" ngModel name="image" class="form-control" id="image1" placeholder="Image" required>
+          </div>
+          <div class="modal-footer">
+            <button type="button" id="add-employee-form" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+            <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary">Ajouter</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
-  <div class="col">
-    <div class="card h-100 border-dark">
-      <img src="assets\image\home\ordinateur.jpg" class="card-header bg-transparent border-dark" alt="PC Portable 2">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a short card.</p>
+</div>
+
+
+<!-- Edit Modal -->
+<div class="modal fade" id="updatePcBureauModal" tabindex="-1" role="dialog" aria-labelledby="employeeEditModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="updateEmployeeModalLabel">Editer l'article {{editPcBureau?.article}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #editForm="ngForm">
+          <input type="hidden" ngModel="{{editPcBureau?.id}}" name="id" class="form-control" id="id">
+          <div class="form-group">
+            <label for="article">Article</label>
+            <input type="text" ngModel="{{editPcBureau?.article}}" name="article" class="form-control" id="article" aria-describedby="emailHelp" placeholder="Article">
+          </div>
+          <div class="form-group">
+            <label for="caracteristique">Caracteristique</label>
+            <input type="text" ngModel="{{editPcBureau?.caracteristique}}" name="caracteristique" class="form-control" id="caracteristique" aria-describedby="emailHelp" placeholder="Caracteristique">
+          </div>
+          <div>
+            <label for="image">Image</label>
+            <input type="text" ngModel="{{editPcBureau?.image}}" name="image" class="form-control" id="image" placeholder="Image">
+          </div>
+          <div class="modal-footer">
+            <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Fermer</button>
+            <button (click)="onUpdatePcBureau(editForm.value)" data-dismiss="modal" class="btn btn-primary">Modifier</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
-  <div class="col">
-    <div class="card h-100 border-dark">
-      <img src="assets\image\home\ordinateur.jpg" class="card-header bg-transparent border-dark" alt="PC Portable 3">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+</div>
+
+<!-- Delete Modal -->
+<div class="modal fade" id="deletePcPortableModal" tabindex="-1" role="dialog" aria-labelledby="deleteModelLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModelLabel">Supprimer l'Article</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card h-100 border-dark">
-      <img src="assets\image\home\ordinateur.jpg" class="card-header bg-transparent border-dark" alt="PC Portable 4">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <div class="modal-body">
+        <p>Voudrais-tu supprimer l'article {{deletePcBureau?.article}} ?</p>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+          <button (click)="onDeletePcBureau(deletePcBureau?.id!)" class="btn btn-danger" data-dismiss="modal">Supprimer</button>
+        </div>
       </div>
     </div>
   </div>

@@ -23,7 +23,7 @@
   </div>
 </div>
 
-<!-- Add PcPortable Modal -->
+<!-- Add PcBureau Modal -->
 <div class="modal fade" id="addPcPortableModal" tabindex="-1" role="dialog" aria-labelledby="addEmployeeModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -34,7 +34,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form #addForm="ngForm" (ngSubmit)="onAddEmloyee(addForm)">
+        <form #addForm="ngForm" (ngSubmit)="onAddPcPortable(addForm)">
           <div class="form-group">
             <label for="article">Article</label>
             <input type="text" ngModel name="article" class="form-control" id="article1" placeholder="Article" required>
