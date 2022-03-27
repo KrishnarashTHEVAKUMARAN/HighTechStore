@@ -3,7 +3,6 @@ import {PcBureau} from "./pcBureau";
 import {PcBureauService} from "./pcBureau.service";
 import {HttpErrorResponse} from "@angular/common/http";
 import {NgForm} from "@angular/forms";
-import {PcPortable} from "../pc-portable/pcPortable";
 
 @Component({
   selector: 'app-pc-bureau',
