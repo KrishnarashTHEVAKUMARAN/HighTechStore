@@ -32,7 +32,7 @@ export class SmartphoneComponent implements OnInit {
   }
 
   public onAddSmartphone(addForm: NgForm): void {
-    const container = document.getElementById('addsmartphoneModal');
+    const container = document.getElementById('addSmartphoneModal');
     container?.click();
     this.smartphoneService.addSmartphone(addForm.value).subscribe(
       (response: Smartphone[]) => {
@@ -86,7 +86,7 @@ export class SmartphoneComponent implements OnInit {
     }
     if (mode === 'delete') {
       this.deleteSmartphone = smartphone;
-      button.setAttribute('data-target', '#deletesmartphoneModal');
+      button.setAttribute('data-target', '#deleteSmartphoneModal');
     }
     container?.appendChild(button);
     button.click();
