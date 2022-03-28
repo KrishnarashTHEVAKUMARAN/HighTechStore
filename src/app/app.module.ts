@@ -14,6 +14,10 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import {HttpClientModule} from "@angular/common/http";
 import { PanierComponent } from './panier/panier.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { SmartphoneComponent } from './smartphone/smartphone.component';
+import { TelephoneFixeComponent } from './telephone-fixe/telephone-fixe.component';
+import { DisquesDurComponent } from './disques-dur/disques-dur.component';
+import { CleUsbComponent } from './cle-usb/cle-usb.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,11 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     ConnexionComponent,
     FooterComponent,
     InscriptionComponent,
-    PanierComponent
+    PanierComponent,
+    SmartphoneComponent,
+    TelephoneFixeComponent,
+    DisquesDurComponent,
+    CleUsbComponent
   ],
   imports: [
     BrowserModule,
