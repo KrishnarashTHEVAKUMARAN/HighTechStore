@@ -16,6 +16,10 @@ export class UsersService {
     return this.http.get<Users[]>(`${this.apiServerUrl}/users/all`)
   }
 
+  public loginUsers(users: Users): Observable<Users[]> {
+    return this.http.post<Users[]>(`${this.apiServerUrl}/users/login`,users)
+  }
+
   public addUsers(users: Users): Observable<Users[]> {
     return this.http.post<Users[]>(`${this.apiServerUrl}/users/add`,users)
   }

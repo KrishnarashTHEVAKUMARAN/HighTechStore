@@ -5,21 +5,19 @@
         <img src="assets/image/connexion/connexion.png" class="img-fluid" alt="HighTechStore Image">
       </div>
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-        <form>
-          <!-- Email input -->
+        <form #userForm="ngForm">
           <div class="form-outline mb-4">
-            <label class="form-label pt-2 pt-lg-0" for="form3Example3">Adresse mail</label>
-            <input type="email" id="form3Example3" class="form-control form-control-lg" placeholder="Entrer votre adresse mail" />
+            <label class="form-label pt-2 pt-lg-0" for="email">Adresse mail</label>
+            <input ngModel="{{users.email}}" name="email" type="email" id="email" class="form-control form-control-lg" placeholder="Entrer votre adresse mail" />
           </div>
 
-          <!-- Password input -->
           <div class="form-outline mb-3">
-            <label class="form-label" for="form3Example4">Mot de passe</label>
-            <input type="password" id="form3Example4" class="form-control form-control-lg" placeholder="Entrer votre mot de passe" />
+            <label class="form-label" for="password">Mot de passe</label>
+            <input type="password" ngModel="{{users.password}}" name="password" id="password" class="form-control form-control-lg" placeholder="Entrer votre mot de passe" />
           </div>
 
           <div class="text-center text-lg-start pt-2">
-            <button type="button" class="btn btn-success btn-lg" style="padding-left: 1.5rem; padding-right: 1.5rem;">Connexion</button>
+            <button (click)="userLogin(userForm.value)" class="btn btn-success btn-lg" style="padding-left: 1.5rem; padding-right: 1.5rem;">Connexion</button>
             <p class="small fw-bold mt-2 pt-1 mb-0">Vous n'avez pas de compte ? <a routerLink="/Inscription" class="link-danger">S'inscrire</a></p>
           </div>
 
