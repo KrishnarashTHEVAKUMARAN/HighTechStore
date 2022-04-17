@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiBaseUrl: 'http://localhost:8080'
+  // todo: revert this to 8080
+  apiBaseUrl: 'http://localhost:8050'
 };
 
 /*

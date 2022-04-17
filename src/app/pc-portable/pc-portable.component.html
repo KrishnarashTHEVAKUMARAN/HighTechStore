@@ -1,4 +1,10 @@
 <div class="container" id="main-container">
+  <div class="row" *ngIf="addedToCart!==null">
+    <div class="alert alert-info">
+      Votre produits "{{ addedToCart.article }}" a ete rajoute au 
+      <a href="/panier">Panier</a>
+    </div>
+  </div>
   <div class="row p-1">
     <div class="col-md-6 col-xl-4 py-2" *ngFor="let pcP of pcPortable">
       <div class="card h-100 border-dark m-b-30">
@@ -13,6 +19,7 @@
         </div>
         <div class="card-footer">
           <div class="pull-right btn-group btn-group-sm">
+            <a (click)="onOpenModal(pcP, 'cart')" class="btn btn-dark tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-shopping-cart"></i> </a>
             <a (click)="onOpenModal(pcP, 'edit')" class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
             <a (click)="onOpenModal(pcP, 'delete')" class="btn btn-secondary tooltips" data-placement="top" data-original-title="Delete"><i class="fa fa-times"></i></a>
           </div>
