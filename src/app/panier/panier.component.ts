@@ -11,9 +11,9 @@ export class PanierComponent implements OnInit {
   public produitsDansLePanier: Produit[] = [
 {
   id: 1,
-  caracteristique: "ABC",
-  article: "Spider Man Movie",
-  image: "https://api.lorem.space/image/movie?w=150&h=220&t=1"
+  caracteristique: "Dimensions 247 x 355 x 19 mm, Poids 2.01 kg, Processeur Intel Core i7-11800H, RAM 16 Go, Carte graphique Nvidia Geforce RTX 3050, Système d'exploitation Windows",
+  article: "Asus Vivobook",
+  image: "assets/image/pcPortable/G_741173_A.avif"
 }
   ];
 
@@ -25,7 +25,7 @@ export class PanierComponent implements OnInit {
 
   deleteFromCart(produit: Produit){
     alert(`${produit.article} a ete suprimee du panier`)
-    //todo: add the backend 
+    //todo: add the backend
     // todo: remove produit from produitDansLePanier
   }
 
