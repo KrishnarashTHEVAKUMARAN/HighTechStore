@@ -1,32 +1,31 @@
 <div class="container">
-   <div class="my-4">
-    Les produits dans votre panier:
-   </div>
+  <div class="my-4 h4" style="text-align: center">
+    Les produits dans votre panier :
+  </div>
 
-   <!-- todo: lsit here products from the Cart -->
-
-   <div>
-    <div class="col-md-6 col-xl-4 py-2" *ngFor="let pcP of produitsDansLePanier">
-        <div class="card h-100 border-dark m-b-30">
-          <div class="card-header bg-transparent">
-            <div class="w-50 m-auto d-block">
-              <img src="{{pcP.image}}" class="rounded bg-transparent border-dark img-fluid">
-            </div>
+  <div class="row p-1">
+    <div class="col-md-6 col-xl-4 py-2" *ngFor="let productPanier of produitsDansLePanier">
+      <div class="card h-100 border-dark m-b-30">
+        <div class="card-header bg-transparent">
+          <div class="w-50 m-auto d-block">
+            <img src="{{productPanier.image}}" class="rounded bg-transparent border-dark img-fluid">
           </div>
-          <div class="card-body">
-            <h5 class="card-title">{{pcP.article}}</h5>
-          </div>
-          <div class="card-footer">
-            <div class="pull-right btn-group btn-group-sm">
-              <a (click)="deleteFromCart(pcP)" class="btn btn-secondary tooltips" data-placement="top" data-original-title="Delete"><i class="fa fa-times"></i></a>
-            </div>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{productPanier.article}}</h5>
+        </div>
+        <div class="card-footer">
+          <div class="pull-right btn-group btn-group-sm">
+            <a (click)="deleteFromCart(productPanier)" class="btn btn-secondary tooltips" data-placement="top"
+               data-original-title="Delete"><i class="fa fa-times"></i></a>
           </div>
         </div>
       </div>
-   </div>
-
-
-    <div class='my-4'>
-        <button class="btn btn-success">Passez vers le Checkout</button>
     </div>
+  </div>
+
+
+  <div class='my-4'>
+    <button class="btn btn-success">Passez vers le Checkout</button>
+  </div>
 </div>
