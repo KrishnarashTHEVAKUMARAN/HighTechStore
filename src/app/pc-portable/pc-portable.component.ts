@@ -11,6 +11,7 @@ import {NgForm} from "@angular/forms";
 })
 export class PcPortableComponent implements OnInit {
   public pcPortable: PcPortable[] = [];
+  public addedToCart: PcPortable|null = null;
   public editPcPortable!: PcPortable | null;
   public deletePcPortable!: PcPortable | null;
 
@@ -86,12 +87,27 @@ export class PcPortableComponent implements OnInit {
       this.editPcPortable = pcPortable;
       button.setAttribute('data-target', '#updatePcPortableModal');
     }
+    if (mode === 'cart' && pcPortable) {
+      console.log("adding to cart ", pcPortable)
+      this.saveToCart(pcPortable);
+    }
     if (mode === 'delete') {
       this.deletePcPortable = pcPortable;
       button.setAttribute('data-target', '#deletePcPortableModal');
     }
     container?.appendChild(button);
     button.click();
+  }
+
+  saveToCart(pcPortable: PcPortable){
+    this.addedToCart = pcPortable
+
+    // todo: Backend work here...
+
+    // We will hide the cart message within 12 seconds
+    setTimeout(() => {
+        this.addedToCart= null;
+    }, 12000)
   }
 
 }
