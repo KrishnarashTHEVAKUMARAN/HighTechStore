@@ -1,8 +1,8 @@
 <div class="container" id="main-container">
   <div class="row" *ngIf="addedToCart!==null">
     <div class="alert alert-info">
-      Votre produits "{{ addedToCart.article }}" a ete rajoute au 
-      <a href="/panier">Panier</a>
+      Votre produits "{{ addedToCart.article }}" a ete rajoute au
+      <a routerLink="/Panier">Panier</a>
     </div>
   </div>
   <div class="row p-1">
