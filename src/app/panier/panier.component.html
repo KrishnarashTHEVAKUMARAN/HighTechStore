@@ -11,12 +11,13 @@
             <img src="{{productPanier.image}}" class="rounded bg-transparent border-dark img-fluid">
           </div>
         </div>
-        <div class="card-body">
-          <h5 class="card-title">{{productPanier.article}}</h5>
+        <div class="d-flex justify-content-between p-3">
+          <h5 class=""> {{productPanier.article}} </h5>
+          <h5 class=""> {{productPanier.prix}} €</h5>
         </div>
         <div class="card-footer">
           <div class="pull-right btn-group btn-group-sm">
-            <a (click)="deleteFromCart(productPanier)" class="btn btn-secondary tooltips" data-placement="top"
+            <a (click)="deleteFromCart(productPanier,produitsDansLePanier)" class="btn btn-secondary tooltips" data-placement="top"
                data-original-title="Delete"><i class="fa fa-times"></i></a>
           </div>
         </div>
@@ -24,8 +25,44 @@
     </div>
   </div>
 
+  <hr>
+
+  <div class="d-flex justify-content-center align-items-center row">
+    <div class="col-md-6 col-xl-4 py-2">
+      <div class="card h-100 border-dark m-b-30">
+        <div class="card-header bg-transparent">
+          <div class="w-50 d-block">
+            <a>Nombre de produit : {{countProduct(produitsDansLePanier)}}
+            </a>
+          </div>
+        </div>
+        <div class="card-body">
+          <a> Total a payer : {{totalPrix(produitsDansLePanier)}} €</a>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-success">Payer</button>
+        </div>
+        <a> {{deleteProduct({
+          id: 1,
+          caracteristique: "Dimensions 247 x 355 x 19 mm, Poids 2.01 kg, Processeur Intel Core i7-11800H, RAM 16 Go, Carte graphique Nvidia Geforce RTX 3050, Système d'exploitation Windows",
+          article: "Asus Vivobook",
+          image: "assets/image/pcPortable/G_741173_A.avif",
+          prix: 10.5
+        },produitsDansLePanier)}}</a>
+      </div>
+    </div>
+  </div>
 
   <div class='my-4'>
     <button class="btn btn-success">Passez vers le Checkout</button>
   </div>
 </div>
+
+<style>
+  hr {
+    border-top: 2px double black;
+    overflow: visible;
+    text-align: center;
+    height: 2px;
+  }
+</style>

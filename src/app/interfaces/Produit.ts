@@ -1,4 +1,4 @@
-type TypesDeProduit = 
+type TypesDeProduit =
 "Pc portable" | "Smartphone"
 | "Pc bureau" | "Acessoire PC"
 
@@ -7,6 +7,6 @@ export interface Produit {
     article: string;
     caracteristique: string;
     image: string;
-    type?: TypesDeProduit
+    type?: TypesDeProduit,
+    prix: number
   }
-  
