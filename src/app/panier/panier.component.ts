@@ -14,14 +14,14 @@ export class PanierComponent implements OnInit {
       caracteristique: "Dimensions 247 x 355 x 19 mm, Poids 2.01 kg, Processeur Intel Core i7-11800H, RAM 16 Go, Carte graphique Nvidia Geforce RTX 3050, Système d'exploitation Windows",
       article: "Asus Vivobook",
       image: "assets/image/pcPortable/G_741173_A.avif",
-      prix: 10
+      prix: 700
     },
     {
       id: 2,
       caracteristique: "Capacité du stockage 2 To, Compatibilité du périphérique Console de jeu, Interface du disque dur Serial ATA 600, Marque Seagate",
       article: "Seagate STBD",
       image: "assets/image/disqueDur/Seagate_STBD.jpg",
-      prix: 2.5
+      prix: 50
     }
   ];
 
